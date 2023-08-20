@@ -10,3 +10,7 @@ This repository contains an implementation of a machine translation model based 
 # Output
 ![image](https://github.com/tonystark11/transformer-from-scratch/assets/20776426/fb394d44-5905-4168-840f-fb82e4c2d622)
 
+# References
+1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf)
+2. [Build your own Transformer from scratch using PyTorch](https://towardsdatascience.com/build-your-own-transformer-from-scratch-using-pytorch-84c850470dcb)
+3. [The Annotated Transformer](http://nlp.seas.harvard.edu/annotated-transformer/)
