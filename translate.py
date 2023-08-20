@@ -1,27 +1,10 @@
 import sys
-
 import torch
 import torch.nn as nn
-
 from src.transformer import *
 
-SRC_LANGUAGE = "en"
-TGT_LANGUAGE = "es"
-BOS_IDX = 2
-EOS_IDX = 3
-max_seq_len = 100
-device = "cuda" if torch.cuda.is_available() else "cpu"
 
-tokenizer = {}
-vocab = {}
-
-tokenizer[SRC_LANGUAGE] = torch.load("./output/tokenizer-english")
-tokenizer[TGT_LANGUAGE] = torch.load("./output/tokenizer-spanish")
-vocab[SRC_LANGUAGE] = torch.load("./output/vocab-english")
-vocab[TGT_LANGUAGE] = torch.load("./output/vocab-spanish")
-transformer = torch.load("./output/transformer_model").to(device)
-
-def translate(src):
+def translate(src, transformer, vocab, tokenizer):
     src_tokens = tokenizer[SRC_LANGUAGE](src)
     tgt_tokens = ["<BOS>"]
 
@@ -39,5 +22,25 @@ def translate(src):
     return " ".join(tgt_tokens).replace("<BOS>", "").replace("<EOS>", "").replace("<PAD>", "").strip()
 
 if __name__ == "__main__":
+    if len(sys.argv) > 2:
+        print('Usage: python translate.py "Hello, my name is John."')
+        sys.exit(1)
+
+    SRC_LANGUAGE = "en"
+    TGT_LANGUAGE = "es"
+    BOS_IDX = 2
+    EOS_IDX = 3
+    max_seq_len = 100
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    tokenizer = {}
+    vocab = {}
+
+    tokenizer[SRC_LANGUAGE] = torch.load("./output/tokenizer-english")
+    tokenizer[TGT_LANGUAGE] = torch.load("./output/tokenizer-spanish")
+    vocab[SRC_LANGUAGE] = torch.load("./output/vocab-english")
+    vocab[TGT_LANGUAGE] = torch.load("./output/vocab-spanish")
+    transformer = torch.load("./output/transformer_model").to(device)
+
     s = sys.argv[1]
-    print(translate(s))
+    print(translate(s, transformer, vocab, tokenizer))
