@@ -3,6 +3,14 @@ Implement the Transformer model from scratch and train it on English - Spanish t
 
 This repository contains an implementation of a machine translation model based on the revolutionary ["Attention Is All You Need"](https://arxiv.org/pdf/1706.03762.pdf) paper, commonly known as the Transformer architecture. The model is trained to translate English sentences into Spanish sentences using a neural network approach that focuses on self-attention mechanisms.
 
+# Usage
+```
+pip install -r requirements.txt
+
+$ python translate.py "Hello, my name is John."
+>>> Hola , mi nombre es John .
+```
+
 # Features
 - Transformer architecture implemented from scratch in PyTorch.
 - The model trained from scratch on [English - Spanish dataset](https://www.manythings.org/anki/spa-eng.zip).
