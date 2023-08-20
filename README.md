@@ -16,7 +16,7 @@ $ python translate.py "Hello, my name is John."
 - The model trained from scratch on [English - Spanish dataset](https://www.manythings.org/anki/spa-eng.zip).
 
 # Output
-![image](https://github.com/tonystark11/transformer-from-scratch/assets/20776426/fb394d44-5905-4168-840f-fb82e4c2d622)
+![output_image](https://github.com/tonystark11/transformer-from-scratch/assets/20776426/729ee5d9-5fee-43c0-864c-a4a9412c1612)
 
 # References
 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf)
